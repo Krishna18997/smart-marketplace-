@@ -1,0 +1,73 @@
+[
+  {
+    "id": "P01",
+    "title": "Laptop A",
+    "category": "Laptops",
+    "price": 22000,
+    "age": 2,
+    "condition": "Good",
+    "listingType": "buy",
+    "originalPrice": 45000
+  },
+  {
+    "id": "P02",
+    "title": "Laptop B",
+    "category": "Laptops",
+    "price": 18000,
+    "age": 3,
+    "condition": "Average",
+    "listingType": "buy",
+    "originalPrice": 42000
+  },
+  {
+    "id": "P03",
+    "title": "Laptop C",
+    "category": "Laptops",
+    "price": 25000,
+    "age": 1,
+    "condition": "Excellent",
+    "listingType": "buy",
+    "originalPrice": 48000
+  },
+  {
+    "id": "P04",
+    "title": "Laptop D",
+    "category": "Laptops",
+    "price": 20000,
+    "age": 2,
+    "condition": "Good",
+    "listingType": "buy",
+    "originalPrice": 40000
+  },
+  {
+    "id": "P05",
+    "title": "Laptop E",
+    "category": "Laptops",
+    "price": 15000,
+    "age": 4,
+    "condition": "Average",
+    "listingType": "buy",
+    "originalPrice": 38000
+  },
+  {
+    "id": "R01",
+    "title": "Dell Latitude Core i7 (Semester Rental)",
+    "category": "Laptops",
+    "price": 1200,
+    "age": 2,
+    "condition": "Good",
+    "listingType": "rent",
+    "rentDuration": "/month",
+    "originalPrice": 48000
+  },
+  {
+    "id": "EL01",
+    "title": "Raspberry Pi 4 Model B (4GB) Lab Kit",
+    "category": "Electronics",
+    "price": 4200,
+    "age": 1,
+    "condition": "Excellent",
+    "listingType": "buy",
+    "originalPrice": 7500
+  }
+]

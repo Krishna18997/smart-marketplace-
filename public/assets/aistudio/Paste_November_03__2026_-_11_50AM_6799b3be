@@ -1,0 +1,1262 @@
+# ROLE & OBJECTIVE
+
+Act as a senior full-stack engineer, product designer, data analyst, and UI/UX specialist.
+
+Build a complete, functional, production-quality prototype called:
+
+**SMART STUDENT MARKETPLACE**
+
+This project is designed for a Third-Year Computer Science Engineering problem statement.
+
+The goal is to build a lightweight student marketplace where students can browse second-hand products such as books, laptops, bicycles, and gadgets, compare prices, analyze product value, and receive explainable, budget-aware recommendations.
+
+This is NOT just a landing page or a static UI demonstration.
+
+Build a fully working application with real JavaScript logic, actual calculations, interactive components, data persistence, and a transparent product-ranking algorithm.
+
+Do not skip any requirement.
+
+---
+
+# 1. PROJECT BACKGROUND
+
+Students frequently purchase second-hand products from other students but struggle to determine whether a listed price is fair.
+
+For example:
+
+- A student wants to purchase a second-hand laptop.
+- Their maximum budget is ₹23,000.
+- Multiple laptops are available at different prices, ages, and conditions.
+- The student wants the best possible product within their budget.
+
+The application should analyze available listings and recommend the top three eligible products.
+
+The recommendations must consider:
+
+1. Affordability.
+2. Product age.
+3. Product condition.
+
+The application should also detect unusually priced listings, explain why a product is recommended, and adapt its recommendations according to the buyer's priorities.
+
+---
+
+- 2\. TECHNOLOGY STACK use techstack according to you
+
+Use modular, clean JavaScript.
+
+Use separate HTML, CSS, and JavaScript files.
+
+The application should run easily using VS Code Live Server.
+
+Organize the project into a maintainable folder structure.
+
+---
+
+# 3. DESIGN DIRECTION – EXTREMELY IMPORTANT
+
+The visual design is one of the most important aspects of this project.
+
+I DO NOT WANT A GENERIC AI-GENERATED WEBSITE.
+
+Avoid the typical AI-generated dashboard aesthetic.
+
+The design should feel like a thoughtfully designed premium student marketplace, combining editorial design, modern commerce, and sophisticated data visualization.
+
+## Overall Design Philosophy
+
+Design inspiration:
+
+- Premium editorial websites.
+- Minimal Scandinavian design.
+- Contemporary independent commerce platforms.
+- Refined Swiss-inspired typography.
+- High-end second-hand marketplaces.
+
+The website should feel handcrafted, calm, sophisticated, trustworthy, and modern.
+
+It should NOT look like a generic SaaS dashboard.
+
+## Colour Palette
+
+Use this carefully selected palette:
+
+- Warm Ivory: #F7F5F0
+- Soft Beige: #EAE3D8
+- Pure White: #FFFFFF
+- Charcoal Black: #252722
+- Warm Dark Grey: #42433E
+- Muted Grey: #898980
+- Emerald Green: #426B55
+- Deep Forest Green: #294C3A
+- Subtle Border: #DEDCD4
+- Soft Warning Beige: #F0E5D2
+
+Use emerald green primarily for:
+
+- Positive recommendations.
+- Good-value indicators.
+- Successful actions.
+- Selected states.
+
+Use warm beige and muted brownish-grey for supporting elements.
+
+Do not make the entire website green.
+
+Maintain generous white space and a balanced colour distribution.
+
+## Typography
+
+Typography must feel elegant and intentional.
+
+Avoid overused generic AI website fonts and oversized bold typography everywhere.
+
+Suggested font combinations:
+
+- Headings: Newsreader or Lora.
+- Body: DM Sans.
+- Numerical data: DM Sans with tabular numbers.
+
+Use a clear typographic hierarchy.
+
+Product names, headings, prices, descriptions, and analytical information should have distinct visual treatments.
+
+Do not use excessively large headings.
+
+## UI Elements
+
+- Refined spacing.
+- Thin, subtle borders.
+- Soft shadows only where necessary.
+- Small corner radii (8–14px).
+- Beautiful product cards.
+- Elegant tables.
+- Minimal icons.
+- Carefully aligned numerical information.
+- Subtle hover states.
+- Smooth transitions.
+- Consistent spacing system.
+
+Avoid:
+
+- Excessive rounded cards.
+- Glassmorphism.
+- Neon colours.
+- Purple-blue AI gradients.
+- Glowing borders.
+- Floating decorative blobs.
+- Excessive animations.
+- Unnecessary badges.
+- Emoji-based navigation.
+- Oversized dashboard statistics.
+- Generic template-like layouts.
+
+## Animation & Interaction
+
+Add subtle, meaningful animations:
+
+- Smooth page entrance.
+- Staggered product-card appearance.
+- Smooth hover transitions.
+- Animated filter updates.
+- Smooth modal opening and closing.
+- Animated score progression.
+- Subtle button feedback.
+- Smooth recommendation updates.
+- Elegant dropdown transitions.
+- Loading skeletons when appropriate.
+
+Use CSS transitions and keyframes.
+
+Keep animations short and professional.
+
+Respect prefers-reduced-motion accessibility settings.
+
+Animations must never interfere with usability.
+
+---
+
+# 4. APPLICATION STRUCTURE
+
+Build the following main sections:
+
+1. Home / Marketplace
+2. Product Listings
+3. Smart Recommendations
+4. Price Intelligence
+5. Add / Edit Listing
+6. About the Ranking Methodology
+
+Create a clean, minimal navigation system.
+
+Suggested navigation:
+
+- Discover
+- Marketplace
+- Recommendations
+- Price Insights
+
+Add a visually elegant hero section.
+
+Suggested hero heading:
+
+"Find better. Spend smarter."
+
+Supporting text:
+
+"A smarter way for students to discover fairly priced second-hand essentials."
+
+Primary CTA:
+"Explore Marketplace"
+
+Secondary CTA:
+"Find My Best Deal"
+
+Include a compact budget input or quick recommendation entry point.
+
+Do not make the homepage unnecessarily long.
+
+---
+
+# 5. INITIAL DATASET
+
+The organizers will provide approximately 20–30 product listings in CSV or JSON format.
+
+Support importing the supplied CSV/JSON dataset.
+
+Create an initial sample JSON dataset using the following five products.
+
+[
+{
+"id": "P01",
+"title": "Laptop A",
+"category": "Electronics",
+"price": 22000,
+"age": 2,
+"condition": "Good",
+"originalPrice": 45000
+},
+{
+"id": "P02",
+"title": "Laptop B",
+"category": "Electronics",
+"price": 18000,
+"age": 3,
+"condition": "Average",
+"originalPrice": 42000
+},
+{
+"id": "P03",
+"title": "Laptop C",
+"category": "Electronics",
+"price": 25000,
+"age": 1,
+"condition": "Excellent",
+"originalPrice": 48000
+},
+{
+"id": "P04",
+"title": "Laptop D",
+"category": "Electronics",
+"price": 20000,
+"age": 2,
+"condition": "Good",
+"originalPrice": 40000
+},
+{
+"id": "P05",
+"title": "Laptop E",
+"category": "Electronics",
+"price": 15000,
+"age": 4,
+"condition": "Average",
+"originalPrice": 38000
+}
+]
+
+The application must support additional categories, including:
+
+- Books
+- Electronics
+- Bicycles
+- Gadgets
+- Accessories
+- Other
+
+Do not assume all products have identical specifications.
+
+Product specifications should be displayed only when available in the supplied data.
+
+Do not invent product specifications.
+
+Include realistic sample listings for the initial demonstration, but clearly distinguish sample data from organizer-provided data.
+
+---
+
+# 6. MARKETPLACE FUNCTIONALITY
+
+Build a fully functional product marketplace.
+
+## A. Product Listing Display
+
+Display products in a clean responsive grid.
+
+Each product card should show:
+
+- Product image or elegant category-based fallback.
+- Product title.
+- Category.
+- Current price.
+- Original price.
+- Discount percentage.
+- Age.
+- Condition.
+- Anomaly warning, if applicable.
+- View Details action.
+
+Use a consistent visual hierarchy.
+
+## B. Search
+
+Implement real-time search by product name/title.
+
+Search should be:
+
+- Case-insensitive.
+- Whitespace tolerant.
+- Responsive.
+- Able to display a useful empty state.
+
+## C. Category Filter
+
+Allow filtering by category.
+
+Users should be able to select:
+
+- All Categories.
+- Electronics.
+- Books.
+- Bicycles.
+- Gadgets.
+- Accessories.
+- Other.
+
+Categories should be dynamically derived from the dataset wherever possible.
+
+## D. Maximum Budget Filter
+
+Allow users to enter their maximum budget.
+
+Only show products with a valid current price less than or equal to the entered budget.
+
+Example:
+
+Budget = ₹23,000.
+
+Eligible:
+
+- Laptop A: ₹22,000.
+- Laptop B: ₹18,000.
+- Laptop D: ₹20,000.
+- Laptop E: ₹15,000.
+
+Not eligible:
+
+- Laptop C: ₹25,000.
+
+## E. Sorting
+
+Provide:
+
+- Price: Low to High.
+- Price: High to Low.
+- Newest First.
+- Best Condition.
+- Best Recommendation Score.
+
+All search, filter, and sorting operations must work together correctly.
+
+## F. Add and Edit Listings
+
+Implement fully working local CRUD functionality.
+
+Users should be able to:
+
+- Add a new listing.
+- Edit an existing listing.
+- Delete a listing after confirmation.
+- Validate input fields.
+- Save changes in LocalStorage.
+
+Required fields:
+
+- Product title.
+- Category.
+- Current price.
+- Age.
+- Condition.
+
+Original price can be optional.
+
+Use proper form validation.
+
+Prevent negative prices and invalid ages.
+
+Generate unique IDs for newly created products.
+
+IMPORTANT: Do not pretend that LocalStorage is a real server database. Clearly treat it as local prototype storage.
+
+---
+
+# 7. PRICE INTELLIGENCE MODULE
+
+This is an important analytical requirement.
+
+Implement actual price calculations.
+
+## A. Price-to-Original-Price Ratio
+
+Formula:
+
+Price Ratio (%) = (Current Price / Original Price) × 100
+
+Example:
+
+Current Price = ₹22,000
+
+Original Price = ₹45,000
+
+Price Ratio = (22000 / 45000) × 100
+
+Price Ratio = 48.89%
+
+Interpretation:
+
+The product is currently listed at approximately 48.89% of its original price.
+
+## B. Discount Calculation
+
+Formula:
+
+Discount Amount = Original Price - Current Price
+
+Discount Percentage = ((Original Price - Current Price) / Original Price) × 100
+
+For Laptop A:
+
+Discount Amount = ₹23,000.
+
+Discount Percentage = 51.11%.
+
+Display these calculations clearly.
+
+Do not calculate discount if original price is missing, zero, or invalid.
+
+Never display misleading discount values.
+
+---
+
+# 8. CORE FEATURE – EXPLAINABLE PRODUCT RANKING ALGORITHM
+
+THIS IS THE MOST IMPORTANT PART OF THE PROJECT.
+
+Implement a documented mathematical ranking algorithm using:
+
+1. Price.
+2. Age.
+3. Condition.
+
+The algorithm must produce a score between 0 and 100.
+
+It must support dynamic buyer priorities.
+
+Do not hardcode recommendations.
+
+All rankings must be calculated from the actual dataset.
+
+## A. Budget Eligibility
+
+Before calculating recommendations:
+
+Exclude products whose valid current price exceeds the buyer's maximum budget.
+
+Products without a valid current price cannot be ranked.
+
+Only eligible products should participate in the recommendation ranking.
+
+Do not recommend products that exceed the buyer's budget.
+
+## B. Price Score
+
+Price Score measures affordability.
+
+Formula:
+
+Price Score = ((Budget - Current Price) / Budget) × 100
+
+Example:
+
+Budget = ₹23,000
+
+Laptop A Price = ₹22,000
+
+Price Score = ((23000 - 22000) / 23000) × 100
+
+Price Score = 4.35
+
+Laptop B Price = ₹18,000
+
+Price Score = 21.74
+
+A lower-priced eligible product receives a higher affordability score.
+
+Clamp the result between 0 and 100.
+
+A product exactly equal to the budget receives 0 price score.
+
+## C. Age Score
+
+Younger products should generally receive higher scores.
+
+Use a configurable maximum reference age of 5 years.
+
+Formula:
+
+Age Score = ((Maximum Reference Age - Product Age) / Maximum Reference Age) × 100
+
+Example:
+
+Maximum Reference Age = 5.
+
+Laptop A Age = 2.
+
+Age Score = ((5 - 2) / 5) × 100 = 60.
+
+Laptop C Age = 1.
+
+Age Score = 80.
+
+Clamp the result between 0 and 100.
+
+Products older than the reference age receive 0 age score.
+
+Missing age must be handled separately and must not automatically be interpreted as a new product.
+
+Make the reference age configurable.
+
+## D. Condition Score
+
+Use the following documented condition mapping:
+
+Excellent = 100
+
+Good = 75
+
+Average = 50
+
+Poor = 25
+
+Condition values should be normalized so that capitalization and surrounding whitespace do not cause errors.
+
+Unknown or missing condition must not receive an automatically assumed Excellent score.
+
+## E. Default Weighted Ranking Formula
+
+Use:
+
+Final Score =
+
+(Price Score × 0.50) +
+
+(Age Score × 0.20) +
+
+(Condition Score × 0.30)
+
+Default weights:
+
+Price = 50%.
+
+Age = 20%.
+
+Condition = 30%.
+
+The maximum final score is 100.
+
+Display the individual factor scores alongside the final score.
+
+## F. Dynamic Buyer Preferences
+
+Allow users to select their priorities.
+
+Provide three modes:
+
+### 1. Balanced
+
+Price = 50%.
+
+Age = 20%.
+
+Condition = 30%.
+
+### 2. Affordability First
+
+Price = 70%.
+
+Age = 10%.
+
+Condition = 20%.
+
+### 3. Condition First
+
+Price = 20%.
+
+Age = 10%.
+
+Condition = 70%.
+
+When a buyer changes their priority:
+
+- Recalculate all scores.
+- Re-sort recommendations.
+- Update the top three products.
+- Update the explanation for each recommendation.
+- Animate the updated results subtly.
+
+The recommendation system must actually change according to the selected weights.
+
+## G. Custom Weight Selection
+
+If practical, also allow advanced users to adjust the three weights manually.
+
+Ensure:
+
+Price Weight + Age Weight + Condition Weight = 100%.
+
+Provide validation and prevent invalid weight combinations.
+
+---
+
+# 9. MISSING VALUE HANDLING
+
+This is a mandatory analytical challenge.
+
+The application must not crash when information is incomplete.
+
+Implement these rules:
+
+1. Missing current price:
+
+   - Mark the listing as incomplete.
+   - Do not include it in budget-based recommendations.
+   - Explain why it cannot be ranked.
+
+2. Missing original price:
+
+   - Do not calculate discount or price ratio.
+   - Continue ranking using other available factors.
+
+3. Missing age:
+
+   - Display "Age not provided".
+   - Exclude age from the score.
+   - Do not assume age is zero.
+
+4. Missing condition:
+
+   - Display "Condition not specified".
+   - Exclude condition from the score.
+
+5. Missing category:
+
+   - Display "Uncategorized".
+   - Do not crash category filtering or anomaly analysis.
+
+## Dynamic Weight Renormalization
+
+When one or more ranking factors are missing, redistribute the available weights proportionally.
+
+Formula:
+
+Adjusted Score =
+
+Sum of (Available Factor Score × Original Factor Weight)
+
+divided by
+
+Sum of Available Factor Weights
+
+Then multiply by 100 only if factor scores are represented as 0–100 and weights are represented as fractions.
+
+For example:
+
+Original weights:
+
+Price = 50%.
+
+Age = 20%.
+
+Condition = 30%.
+
+If condition is missing:
+
+Adjusted Score =
+
+(Price Score × 0.50 + Age Score × 0.20) / 0.70
+
+This ensures that missing information does not unfairly reduce the score.
+
+IMPORTANT:
+
+- Display which factors were unavailable.
+- Indicate when a score was adjusted.
+- Show a small data-completeness indicator.
+- Do not silently hide missing data.
+
+---
+
+# 10. EXPLAINABLE RECOMMENDATIONS
+
+Display the TOP THREE eligible products.
+
+Sort products by final score in descending order.
+
+Every recommendation must include:
+
+- Rank.
+- Product title.
+- Current price.
+- Age.
+- Condition.
+- Final score.
+- Price score.
+- Age score.
+- Condition score.
+- Budget eligibility.
+- Data completeness.
+- Explanation of why the product was recommended.
+
+Example explanation:
+
+"Recommended because this laptop offers a strong balance between affordability and product condition while remaining within your budget."
+
+Generate explanations based on actual scores.
+
+Avoid repeating generic explanations for every product.
+
+Where appropriate, identify the strongest contributing factor.
+
+## Tie Handling
+
+If two products have identical final scores:
+
+1. Prefer the lower-priced product.
+2. If prices are equal, prefer the younger product.
+3. If both are equal, use alphabetical title order.
+
+Display a tie indicator where appropriate.
+
+If multiple products have the same score, do not pretend that one has a mathematically superior score.
+
+If fewer than three eligible products exist, display only the available products.
+
+If no eligible products exist, display a useful empty state.
+
+Never fabricate recommendations.
+
+---
+
+# 11. PRICE ANOMALY DETECTION
+
+This is another important analytical challenge.
+
+Implement an explainable within-category anomaly detection rule.
+
+Do not compare prices across unrelated categories.
+
+For example:
+
+- Laptop prices should be compared with other laptops.
+- Book prices should be compared with other books.
+- Bicycle prices should be compared with other bicycles.
+
+## Rule
+
+Calculate the median current price for each category.
+
+For an odd number of values:
+
+The median is the middle sorted value.
+
+For an even number:
+
+The median is the average of the two middle values.
+
+Calculate:
+
+Price Deviation (%) =
+
+ABS(Current Price - Category Median) / Category Median × 100
+
+Use a default anomaly threshold of 50%.
+
+If the deviation exceeds 50%, flag the listing as:
+
+"Unusually Priced"
+
+Also show:
+
+- Product price.
+- Category median.
+- Percentage deviation.
+- Whether the listing is unusually low or unusually high.
+
+IMPORTANT:
+
+- Use only valid positive prices.
+- Require at least three comparable listings in the same category.
+- If fewer than three comparable listings exist, display "Insufficient comparable listings".
+- If category median is zero or invalid, skip the calculation.
+- Do not treat missing values as zero.
+- An anomaly flag is NOT proof of fraud.
+
+Display this explanation:
+
+"An unusual price indicates a significant deviation from comparable listings in the same category. It is a signal for further checking, not evidence of fraud."
+
+Do not automatically remove or hide flagged products.
+
+---
+
+# 12. PRICE VS CONDITION ANALYSIS
+
+Demonstrate how recommendations change when buyers prioritize affordability versus condition.
+
+Provide a clear comparison between:
+
+- Balanced.
+- Affordability First.
+- Condition First.
+
+Show the change in rankings when the preference changes.
+
+If possible, provide a compact comparison view with:
+
+Product name | Balanced score | Affordability score | Condition score.
+
+This demonstrates that the recommendation algorithm is dynamic rather than hardcoded.
+
+---
+
+# 13. RECOMMENDATION DASHBOARD
+
+Create a dedicated recommendation page.
+
+The user should be able to:
+
+1. Enter a maximum budget.
+2. Choose a product category.
+3. Select a buyer priority.
+4. Generate recommendations.
+5. Compare the top three results.
+
+Display:
+
+- Selected budget.
+- Selected priority.
+- Number of eligible listings.
+- Top three recommendations.
+- Final scores.
+- Individual factor contributions.
+- Explanation of each recommendation.
+- Price anomaly information where relevant.
+
+Use beautiful, restrained data visualization.
+
+Do not overload the dashboard with unnecessary charts.
+
+If using charts, they must represent actual calculated data.
+
+---
+
+# 14. PRODUCT COMPARISON
+
+Implement a comparison feature.
+
+Allow users to compare up to three products.
+
+Show:
+
+- Price.
+- Original price.
+- Discount.
+- Price ratio.
+- Age.
+- Condition.
+- Ranking score.
+- Anomaly status.
+
+Clearly identify the differences.
+
+Do not claim that products are equivalent if their specifications are unavailable.
+
+---
+
+# 15. EDGE CASES AND ROBUSTNESS
+
+Test and handle all of the following:
+
+1. Empty dataset.
+2. Invalid JSON.
+3. Missing product title.
+4. Missing category.
+5. Missing age.
+6. Missing condition.
+7. Missing original price.
+8. Zero original price.
+9. Negative prices.
+10. Invalid budget.
+11. Budget equal to product price.
+12. Budget lower than every product price.
+13. Only one eligible product.
+14. Only two eligible products.
+15. More than three eligible products.
+16. Identical recommendation scores.
+17. Duplicate product names.
+18. Categories with fewer than three comparable listings.
+19. All products having the same category median.
+20. Multiple unusual prices.
+21. Changing buyer priorities.
+22. Adding and editing listings.
+23. Refreshing the browser after saving changes.
+
+The application should remain usable and should provide clear feedback.
+
+---
+
+# 16. RESPONSIVE DESIGN AND ACCESSIBILITY
+
+The website must work properly on:
+
+- Desktop.
+- Laptop.
+- Tablet.
+- Mobile.
+
+Implement:
+
+- Responsive product grids.
+- Mobile-friendly navigation.
+- Accessible form labels.
+- Keyboard-friendly controls.
+- Proper focus states.
+- Good colour contrast.
+- Semantic HTML.
+- Meaningful error messages.
+- Reduced-motion support.
+
+Do not allow horizontal overflow on mobile.
+
+---
+
+# 17. DATA STORAGE AND IMPORT
+
+Implement LocalStorage persistence.
+
+Requirements:
+
+- Load initial products from JSON.
+- Allow importing organizer-provided JSON.
+- Support CSV import.
+- Validate imported records.
+- Display import errors clearly.
+- Preserve user-added listings.
+- Preserve edited listings.
+- Prevent accidental data loss.
+- Provide a reset-to-sample-data option with confirmation.
+- Provide an export option to download the current dataset as JSON or CSV.
+
+Normalize different possible column names when importing CSV/JSON.
+
+For example:
+
+"title", "item", and "name" should be mapped to the product title where possible.
+
+"price" and "currentPrice" should be mapped to current price.
+
+"originalPrice" and "original_price" should be mapped to original price.
+
+"age" and "ageYears" should be mapped to age.
+
+"condition" should map to condition.
+
+Do not silently discard invalid records. Report them.
+
+---
+
+# 18. PROJECT FILE STRUCTURE
+
+Use a clean and modular structure similar to:
+
+smart-student-marketplace/
+│
+├── index.html
+├── README.md
+│
+├── assets/
+│   ├── images/
+│   └── icons/
+│
+├── css/
+│   ├── style.css
+│   ├── components.css
+│   └── responsive.css
+│
+├── js/
+│   ├── app.js
+│   ├── data.js
+│   ├── marketplace.js
+│   ├── filters.js
+│   ├── ranking.js
+│   ├── price-analysis.js
+│   ├── recommendations.js
+│   ├── storage.js
+│   └── validation.js
+│
+└── data/
+└── products.json
+
+You may improve this structure if necessary.
+
+Avoid unnecessary code duplication.
+
+Keep the ranking algorithm independent of the UI so it can be tested separately.
+
+---
+
+# 19. EVALUATION CRITERIA – 100 POINTS
+
+THESE CRITERIA MUST DIRECTLY GUIDE IMPLEMENTATION PRIORITIES.
+
+## A. Marketplace Core Features – 25 Points
+
+Implement:
+
+- Dataset loading.
+- Product display.
+- Search.
+- Category filtering.
+- Maximum budget filtering.
+- Add listing.
+- Edit listing.
+- Functional product management.
+- Responsive UI.
+
+## B. Price Analysis and Anomaly Rule – 25 Points
+
+Implement:
+
+- Price-to-original-price ratio.
+- Discount calculation.
+- Category-wise median.
+- Percentage deviation.
+- Anomaly threshold.
+- Insufficient-comparison handling.
+- Clear anomaly explanations.
+
+## C. Ranking Algorithm – 25 Points
+
+Implement:
+
+- Budget eligibility.
+- Price score.
+- Age score.
+- Condition score.
+- Weighted final score.
+- Dynamic buyer preferences.
+- Top three ranking.
+- Recommendation explanations.
+- Correct sorting and tie handling.
+
+## D. Edge-Case Handling and Reasoning – 15 Points
+
+Implement:
+
+- Missing values.
+- Invalid values.
+- Identical scores.
+- Insufficient category comparisons.
+- Sparse categories.
+- Empty states.
+- Data validation.
+- Transparent assumptions.
+- No fabricated information.
+
+## E. Usability and Explanation – 10 Points
+
+Implement:
+
+- Elegant UI.
+- Responsive layout.
+- Clear information hierarchy.
+- Easy navigation.
+- Readable calculations.
+- Documented ranking formula.
+- Clear user-facing explanations.
+
+Do not sacrifice analytical correctness for visual appearance.
+
+---
+
+# 20. DOCUMENTATION
+
+Create a professional README.md.
+
+It must explain:
+
+1. Project overview.
+2. Problem statement.
+3. Features.
+4. Technology stack.
+5. Installation and execution steps.
+6. Dataset structure.
+7. Ranking algorithm.
+8. Mathematical formulas.
+9. Buyer preference weights.
+10. Anomaly detection methodology.
+11. Missing-value handling.
+12. Assumptions and limitations.
+13. Edge-case handling.
+14. Evaluation criteria mapping.
+
+Also create a short methodology section inside the application explaining how recommendations are calculated.
+
+All formulas must match the actual implementation.
+
+---
+
+# 21. IMPLEMENTATION AND DELIVERY INSTRUCTIONS
+
+Follow this sequence:
+
+STEP 1:
+Analyze the entire specification.
+
+STEP 2:
+Design the application structure and user experience.
+
+STEP 3:
+Implement the complete HTML and CSS.
+
+STEP 4:
+Implement the dataset loading and storage layer.
+
+STEP 5:
+Implement marketplace features.
+
+STEP 6:
+Implement price analysis and anomaly detection.
+
+STEP 7:
+Implement the ranking algorithm.
+
+STEP 8:
+Implement dynamic recommendations and product comparison.
+
+STEP 9:
+Implement edge-case handling and validation.
+
+STEP 10:
+Test the entire application.
+
+STEP 11:
+Create the README documentation.
+
+IMPORTANT DEVELOPMENT RULES:
+
+- Do not provide only a mockup.
+- Do not use hardcoded recommendation results.
+- Do not use fake scores.
+- Do not use placeholder buttons.
+- Every visible interactive button must perform its intended action.
+- Do not omit any mandatory feature.
+- Do not simplify or remove the ranking algorithm.
+- Do not ignore the evaluation criteria.
+- Do not invent product specifications.
+- Do not claim that anomaly detection proves fraud.
+- Do not silently ignore missing values.
+- Do not leave incomplete JavaScript functions.
+- Do not stop after creating the homepage.
+
+If working in an AI coding environment, create the actual project files rather than merely printing code snippets.
+
+If working in a chat-only environment, provide every file with its complete contents and clearly identify its filename.
+
+Before declaring completion, verify all major features and calculations.
+
+---
+
+# 22. FINAL QUALITY CHECK
+
+Before finishing, verify the following:
+
+[ ] All products load correctly.
+
+[ ] Search works.
+
+[ ] Category filter works.
+
+[ ] Budget filter works.
+
+[ ] Add listing works.
+
+[ ] Edit listing works.
+
+[ ] Delete listing works.
+
+[ ] LocalStorage persistence works.
+
+[ ] JSON import works.
+
+[ ] CSV import works.
+
+[ ] Price ratio is mathematically correct.
+
+[ ] Discount calculation is mathematically correct.
+
+[ ] Category median is calculated correctly.
+
+[ ] Anomaly detection follows the specified threshold.
+
+[ ] Budget-ineligible products are excluded.
+
+[ ] Price, age, and condition scores are correct.
+
+[ ] Dynamic weighting works.
+
+[ ] Missing-value weight renormalization works.
+
+[ ] Top three products are ranked correctly.
+
+[ ] Ties are handled correctly.
+
+[ ] Recommendation explanations are data-driven.
+
+[ ] Insufficient data is handled correctly.
+
+[ ] Mobile responsiveness works.
+
+[ ] README documentation is complete.
+
+[ ] No visible button is non-functional.
+
+[ ] No console errors remain.
+
+FINAL EXPECTATION:
+
+Deliver a complete, refined, fully functional Smart Student Marketplace prototype.
+
+The final product should feel like a real student-focused commerce platform designed by a professional product team.
+
+It must combine elegant visual design, mathematically correct recommendations, transparent price analysis, and reliable edge-case handling.
+
+**The most important principle: Build a product that is beautiful to use, accurate in its calculations, and easy to explain during a technical evaluation.**

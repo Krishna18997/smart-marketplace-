@@ -1,0 +1,6 @@
+{
+  "name": "Smart Student Marketplace",
+  "description": "An explainable, budget-aware second-hand student marketplace with mathematical product ranking, price intelligence, and anomaly detection.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
